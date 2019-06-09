@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Animation player</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="root">
+    <header>
+      <div class="container">
+        <h1>Animation player</h1>
+        <button class="btn-menu"></button>
+        <button class="btn-add-menu"></button>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="pallete">
+          <ul class="main-pallete">
+            <li 
+              class="tool-pencil active" 
+              data-tooltip="You press key P" 
+              id="toolPencil" 
+              data-cursor="cursor-pencil"
+              title="You press key P"
+            ></li>
+            <li class="tool-choose-color" id="toolChooseColor" data-cursor="cursor-choose-color">
+              <input type="color" value="#ffffff" data-tooltip="You press key C" title="You press key C">
+            </li>
+          </ul>
+        </div>
+
+        <div class="preview-container">
+          <div class="preview-box"></div>
+          <div class="add-new" id="addNewCanvas"><span>+</span>Add new frame</div>
+        </div>
+        
+        <div class="canvas-container">
+          <button type="button" class="full-screen-btn" id="FullScreenBtn">Full screen</button>
+          <div class="canvas-box"></div>
+        </div>
+
+        <div class="previes-frames">
+          <img src="img/canvas.png" alt="">
+          <div class="speed-btn-box">
+            <button type="button" data-fps="2" class="active">2 FPS</button>
+            <button type="button" data-fps="4">4 FPS</button>
+            <button type="button" data-fps="8">8 FPS</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="build/bundle.js"></script>
+</body>
+
+</html>
