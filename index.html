@@ -3,63 +3,106 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Animation player</title>
+  <title>Piskel-clone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
   <div class="root">
     <header>
       <div class="container">
-        <h1>Animation player</h1>
+        <h1>Piskel-clone</h1>
         <button class="btn-menu"></button>
         <button class="btn-add-menu"></button>
-      </div>
+      </div>     
     </header>
 
     <main>
       <div class="container">
         <div class="pallete">
+
+          <div class="unit-size-wrapper">
+            <input type="range" min="5" max="128" id="unitSizeInput">
+            <p>Pen size <span id="currentUnitSizeValue">32</span></p>
+          </div>
           <ul class="main-pallete">
             <li 
               class="tool-pencil active" 
               data-tooltip="You press key P" 
               id="toolPencil" 
-              data-cursor="cursor-pencil"
-              title="You press key P"
+              data-tool="tool-pencil"
+              title="Pencil tool (P)"
             ></li>
-            <li class="tool-choose-color" id="toolChooseColor" data-cursor="cursor-choose-color">
-              <input type="color" value="#ffffff" data-tooltip="You press key C" title="You press key C">
+
+            <li 
+              class="tool-eraser" 
+              data-tooltip="You press key E" 
+              id="toolEraser" 
+              data-tool="tool-eraser"
+              title="Pencil tool (E)"
+            ></li>
+            
+            <li 
+              class="tool-bucket" 
+              data-tooltip="You press key P" 
+              id="toolPaintBucket" 
+              data-tool="tool-paint-bucket"
+              title="Paint bucket tool (B)"
+            ></li>
+
+            <li 
+              class="tool-color-picker"
+              id="toolColorPicker"
+              data-tool="tool-color-picker"
+              title="Color Picker tool (С)"
+            >
+
+            <li 
+              class="tool-rect"
+              id="toolRect"
+              data-tool="tool-rect"
+              title="Rectangle tool (R)"
+            >
             </li>
           </ul>
+          <div class="color-wrapper">
+            <div class="color-primary active">
+              <div class="color-preview">
+                <input type="color" id="colorPrimaryInput" title="Primary color">
+              </div>
+            </div>
+            <div class="color-secondary">
+                <div class="color-preview">
+                  <input type="color" id="colorSecondaryInput" title="Secondary color">
+                </div>
+            </div>
+          </div>
         </div>
 
         <div class="preview-container">
-          <div class="preview-box"></div>
+          <div class="preview-wrapper" id='items'></div>
+
           <div class="add-new" id="addNewCanvas"><span>+</span>Add new frame</div>
         </div>
         
         <div class="canvas-container">
-          <button type="button" class="full-screen-btn" id="FullScreenBtn">Full screen</button>
-          <div class="canvas-box"></div>
+          <div class="canvas-wrapper" data-tool="tool-pencil"></div>
+          <a href="" class="btn" id="downloadBtn">Download</a>
         </div>
-
-        <div class="previes-frames">
-          <img src="img/canvas.png" alt="">
-          <div class="speed-btn-box">
-            <button type="button" data-fps="2" class="active">2 FPS</button>
-            <button type="button" data-fps="4">4 FPS</button>
-            <button type="button" data-fps="8">8 FPS</button>
+        
+        <div class="canvas-animated-container">
+          <div class="canvas-animated-wrapper"></div>
+          <div class="change-animated-wrapper">
+            <span id="fpsAnimatedValue">2 FPS</span>
+            <input type="range" min="2" max="24" value="2" id="fpsAnimated">
           </div>
+          <button type="button" class="btn" id="FullScreenBtn">Full screen</button>
+          <a href="" class="btn" id="downloadBtnGif">Download</a>
         </div>
       </div>
     </main>
   </div>
 
-  <script src="build/bundle.js"></script>
-</body>
+<script type="text/javascript" src="bundle.js"></script></body>
 
 </html>
